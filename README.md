@@ -1,8 +1,8 @@
-# Product Scraper
+# Product Scraper from Ebay
 
 ## Description
 
-This is a console application that allows you to search for a given product on multiple websites and returns the products that...
+This is a console application that allows you to search for a given product on Ebay and returns the products that...
 
 - match the search query
 - is brand new
