@@ -19,7 +19,7 @@ class Scrapper:
 
         return self.soup
 
-    def scrape_products(self) -> Product:
+    def scrape_products_testing(self) -> Product:
         html_elements = {
             "parent": {"tag": "div", "class_name": "s-result-list"},
             "title": {
@@ -49,10 +49,4 @@ class Scrapper:
 
         html_element = list(map(find_html_elements, products_html))
 
-        def cb():
-            for item in self.soup.find_all(parent["tag"], class_=parent["class_name"]):
-                item_title = item.find(title["tag"], class_=title["class_name"])
-                item_price = item.find(price["tag"], class_=price["class_name"])
-                item_link = item.find(link["tag"], class_=link["class_name"]).get(
-                    "href"
-                )
+        return html_element
