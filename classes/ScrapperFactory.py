@@ -32,7 +32,7 @@ class ScrapperFactory:
 
         ebay_results = self.EbayScrapper.search(product, results_to_show)
         ebay_results_parsed = list(
-            map(lambda item: self.parse_data_to_table(item, "Ebay"), ebay_results)
+            map(lambda item: self.parse_data_to_table(item, "Ebay UK"), ebay_results)
         )
 
         rows = ebay_results_parsed
@@ -41,7 +41,7 @@ class ScrapperFactory:
         return ebay_results
 
     def parse_data_to_table(self, data: Product, website="Unknown") -> list[str]:
-        return [website, data.title, f"${data.price}", data.link]
+        return [website, data.title, f"£{data.price}", data.link]
 
     def show_table(self, rows):
         columns = ["From", "Title", "Price", "Link"]

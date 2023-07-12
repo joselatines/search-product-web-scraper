@@ -25,12 +25,11 @@ class EbayProduct(Product):
         return f"{self.title}, {self.price}, {self.condition}, {self.seller_feedback_rate}, {self.__img_path}"
 
     @property
-    def price(self) -> int:
-        property_parsed = self.__price.lower().strip().strip("£").replace(",", ".")
-        float_number = re.findall(r"\d+\.\d+", property_parsed)[0]
-        property_parsed = int(float(float_number))
+    def price(self) -> float:
+        property_parsed = self.__price.strip("£").replace(",", ".")
+        float_number = float(re.findall(r"\d+\.\d+", property_parsed)[0])
 
-        return property_parsed
+        return float_number
 
     @price.setter
     def price(self, new_price):
